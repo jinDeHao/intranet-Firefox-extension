@@ -2,12 +2,42 @@
 	--green-color: #4CAF50:
 }
 
+@keyframes slide {
+	0% {
+	  background-position: left bottom;
+	}
+	100% {
+	  background-position: right bottom;
+	}
+}
+
+@keyframes move {
+	0% {
+		border: solid 1px #ffffff;
+		opacity: 1;
+	}
+	50% {
+		border: solid 1px #1bb422;
+		opacity: 0.7;
+	}
+	100% {
+		border: solid 1px #ffffff;
+		opacity: 1;
+	}
+}
+
 body {
+	overflow-x: hidden;
 	display: block;
 	background-color: #222;
+	backface-visibility: visible;
 	color: #eee;
-	width: 20rem;
+	width: 22rem;
 	height: 30rem;
+	background-image: url('images/no_back_icon.png');
+	background-repeat: no-repeat;
+	background-position: right 8px top 8px;
+	background-size: 100px;
 }
 
 h1 {
@@ -51,11 +81,14 @@ hr {
 	display: none;
 }
 
-.select-all input:checked+div,
-.select-none input:checked+div,
-.select-greens input:checked+div,
-.select-reds input:checked+div {
-	font-weight: bolder;
+.selection {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.selection input:checked+div {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	opacity: 50%;
 }
 
 button {
@@ -66,7 +99,7 @@ button {
 	line-height: 1;
 	margin: 0.5em;
 	padding: 1em 2em;
-	color: #4CAF50;
+	color: #a10aa1;
 	transition: 0.25s;
 }
 
@@ -76,15 +109,16 @@ button {
 	color: #fff;
 }
 
-button:hover,
-button:focus {
-	border-color: #4CAF50;
+button:hover {
+	border-color: #a10aa1;
 	color: #fff;
 }
+.slide {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+}
 
-.slide:hover,
-.slide:focus {
-	box-shadow: rgba(95, 220, 11, 0.7) 0 80px 0px 2px inset;
+.slide:hover {
+	box-shadow: #a10aa1;
 }
 .task-status {
 	display: inline-block;
@@ -97,7 +131,18 @@ button:focus {
 }
 .task-status.green {
 	
-	background-color: rgba(0, 128, 0, 0.2);
+	background-color: rgba(3, 124, 3, 0.062);
+	box-sizing: border-box;
+	border: solid 1px #d6f5d896;
+	font-family: "aktiv-grotesk", sans-serif;
+	font-size: 14px;
+	background-image: url('images/approval-16.png');
+	background-size: 20%;
+	opacity: 0.7;
+	background-repeat: no-repeat;
+	background-position: center left 4px;
+	text-align: center;
+	padding-left: 14px;
 }
 
 .task-status.green input {
@@ -106,12 +151,29 @@ button:focus {
 
 
 .task-status.green.checked {
-	background-color: #45a049;
+	background-color: #45a04933;
+	border: solid 1px #1bb422;
+	opacity: 1;
+	box-sizing: border-box;
+	font-family: "aktiv-grotesk", sans-serif;
+	font-size: 14px;
 }
 
 
 .task-status.red {
-	background-color: rgb(255, 0, 0, 0.2);
+	background-color: rgba(255, 0, 0, 0.082);
+	border: solid 1px #f3cece7e;
+	box-sizing: border-box;
+	font-family: "aktiv-grotesk", sans-serif;
+	font-size: 14px;
+	background-image: url('images/x-94.png');
+	background-size: 20%;
+	opacity: 0.7;
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-position: center left 4px;
+	text-align: center;
+	padding-left: 14px;
 }
 
 .task-status.red input {
@@ -120,5 +182,18 @@ button:focus {
 
 
 .task-status.red.checked {
-	background-color: #a04545;
+	background-color: #330000;
+	border: solid 1px #ff0000;
+	box-sizing: border-box;
+	opacity: 1;
+	font-family: "aktiv-grotesk", sans-serif;
+	font-size: 14px;
+}
+
+.task-status.running {
+	cursor: not-allowed;
+}
+
+.task-status.running {
+	animation: move 1s linear infinite;
 }
