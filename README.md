@@ -1,5 +1,5 @@
 #  💫 Firefox Intranet Projects Extension 💫 
-<p align="center"> <img src="https://i.imgur.com/0tzT2sG.png" alt="preview" /> </p>
+<p align="center"> <img src="popup/images/Screenshot.png" alt="preview" /> </p>
 Tutorial Video: https://youtu.be/WxMfN6YxmDs 
 <br />
 <br />
